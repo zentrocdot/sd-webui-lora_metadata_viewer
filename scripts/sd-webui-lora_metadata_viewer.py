@@ -30,13 +30,13 @@ def lora_scan(lora_dir: str, ext: list):  # lora_dir: str, ext: list
     '''File scan for LoRA models.'''
     global lora_dict
     subdirs, files = [], []
-    for f in os.scandir(lora_dir):
-        if f.is_dir():
+    for fn in os.scandir(lora_dir):
+        if fn.is_dir():
             subdirs.append(f.path)
-        if f.is_file():
-            if os.path.splitext(f.name)[1].lower() in ext:                
-                files.append(f.name)
-                lora_dict[f.name] = f.path
+        if fn.is_file():
+            if os.path.splitext(fn.name)[1].lower() in ext:                
+                files.append(fn.name)
+                lora_dict[fn.name] = fn.path
     for dirs in list(subdirs):
         sd, fn = lora_scan(dirs, ext)
         subdirs.extend(sd)
@@ -58,7 +58,7 @@ def on_ui_tabs():
     with gr.Blocks(analytics_enabled=False) as ui_component:    
         # Create a new row. 
         with gr.Row():
-            input_file = gr.Dropdown(get_lora_list())
+            input_file = gr.Dropdown(value=get_lora_list(), label="LoRA File List" )
             create_refresh_button(input_file, get_lora_list,
                                   lambda: {"choices": get_lora_list()},
                                   "metadata_utils_refresh_1")
