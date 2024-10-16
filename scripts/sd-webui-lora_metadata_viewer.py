@@ -20,13 +20,13 @@ from modules.ui import create_refresh_button
 from modules import script_callbacks
 
 # Get LoRA path.
-lora_path = getattr(modules.shared.cmd_opts, "lora_dir", os.path.join(models.paths.models_path, "Lora"))
+LORA_PATH = getattr(modules.shared.cmd_opts, "lora_dir", os.path.join(models.paths.models_path, "Lora"))
 
-# Create dict.
+# Create dictionary.
 lora_dict = {}
 
 # Function lora_scan().
-def lora_scan(lora_dir, ext):  # lora_dir: str, ext: list
+def lora_scan(lora_dir: str, ext: list):  # lora_dir: str, ext: list
     '''File scan for LoRA models.'''
     global lora_dict
     subdirs, files = [], []
@@ -34,10 +34,9 @@ def lora_scan(lora_dir, ext):  # lora_dir: str, ext: list
         if f.is_dir():
             subdirs.append(f.path)
         if f.is_file():
-            if os.path.splitext(f.name)[1].lower() in ext:
-                lora_dict[f.name] = f.path
+            if os.path.splitext(f.name)[1].lower() in ext:                
                 files.append(f.name)
-                #files.append(f.path)
+                lora_dict[f.name] = f.path
     for dirs in list(subdirs):
         sd, fn = lora_scan(dirs, ext)
         subdirs.extend(sd)
@@ -49,7 +48,7 @@ def lora_scan(lora_dir, ext):  # lora_dir: str, ext: list
 def get_lora_list():
     '''Simple function for use with components.'''
     lora_list = []
-    _, lora_list = lora_scan(lora_path, [".safetensors"])
+    _, lora_list = lora_scan(LORA_PATH, [".safetensors"])
     return lora_list
 
 # Function on_ui_tabs().
@@ -75,11 +74,11 @@ def on_ui_tabs():
 script_callbacks.on_ui_tabs(on_ui_tabs)
 
 # Function get_lora().
-def get_lora(lora_file):
+def get_lora(lora_file: str):
     '''Function get_lora().'''
-    if not os.path.isfile(os.path.join(lora_path, lora_file)):
+    if not os.path.isfile(os.path.join(LORA_PATH, lora_file)):
         return None
-    return os.path.join(lora_path, lora_file)
+    return os.path.join(LORA_PATH, lora_file)
 
 # Function load_lora_metadata().
 def load_lora_metadata(input_file: str):
