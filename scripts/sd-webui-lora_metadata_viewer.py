@@ -58,7 +58,7 @@ def on_ui_tabs():
     with gr.Blocks(analytics_enabled=False) as ui_component:    
         # Create a new row. 
         with gr.Row():
-            input_file = gr.Dropdown(get_lora_list(), label="LoRA File List" )
+            input_file = gr.Dropdown(choices=get_lora_list(), label="LoRA File List" )
             create_refresh_button(input_file, get_lora_list,
                                   lambda: {"choices": get_lora_list()},
                                   "metadata_utils_refresh_1")
@@ -76,14 +76,14 @@ def on_ui_tabs():
 script_callbacks.on_ui_tabs(on_ui_tabs)
 
 # Function get_lora_path().
-def get_lora_path(lora_file: str):
+def get_lora_path(lora_file: str) -> str:
     '''Get the path to the LoRA file.'''
     if not os.path.isfile(os.path.join(LORA_PATH, lora_file)):
         return None
     return os.path.join(LORA_PATH, lora_file)
 
 # Function read_lora_metadata().
-def read_lora_metadata(input_file: str):
+def read_lora_metadata(input_file: str) -> json:
     '''Read the LoRA metadata.'''
     if selected_model := get_lora_path(lora_dict.get(input_file)):
         if metadata := models.read_metadata_from_safetensors(selected_model):
