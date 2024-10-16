@@ -58,7 +58,7 @@ def on_ui_tabs():
     with gr.Blocks(analytics_enabled=False) as ui_component:    
         # Create a new row. 
         with gr.Row():
-            input_file = gr.Dropdown(value=get_lora_list(), label="LoRA File List" )
+            input_file = gr.Dropdown(get_lora_list(), label="LoRA File List" )
             create_refresh_button(input_file, get_lora_list,
                                   lambda: {"choices": get_lora_list()},
                                   "metadata_utils_refresh_1")
