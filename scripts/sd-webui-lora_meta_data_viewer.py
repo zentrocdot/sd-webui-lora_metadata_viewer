@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''sd-webui-simple-meta_data_viewer
+'''sd-webui-lora-metadata_viewer
 Extension for AUTOMATIC1111.
 
 Version 0.0.0.1
