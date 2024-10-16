@@ -45,7 +45,7 @@ def lora_scan(lora_dir: str, ext: list):  # lora_dir: str, ext: list
     return subdirs, files
 
 # Function get_lora_list().
-def get_lora_list():
+def get_lora_list() -> list:
     '''Simple function for use with components.'''
     lora_list = []
     _, lora_list = lora_scan(LORA_PATH, [".safetensors"])
