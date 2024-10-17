@@ -90,7 +90,8 @@ def on_ui_tabs():
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
             try:
-                input_file.change(
+                #input_file.change(
+                input_file.input(
                     fn=read_lora_metadata,
                     inputs=[input_file],
                     outputs=[json_output]
