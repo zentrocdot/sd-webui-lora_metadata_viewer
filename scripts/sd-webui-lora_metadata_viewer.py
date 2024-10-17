@@ -25,6 +25,9 @@ LORA_PATH = getattr(modules.shared.cmd_opts, "lora_dir", os.path.join(models.pat
 # Create dictionary.
 lora_dict = {}
 
+# Set private variable.
+_sorting = True
+
 # Function lora_scan().
 def lora_scan(lora_dir: str, ext: list) -> (list, list):
     '''File scan for LoRA models.'''
