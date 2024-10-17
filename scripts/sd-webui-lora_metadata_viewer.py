@@ -89,11 +89,14 @@ def on_ui_tabs():
         # Create a new row. 
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
-            input_file.change(
-                fn=read_lora_metadata,
-                inputs=[input_file],
-                outputs=[json_output]
-            )
+            try:
+                input_file.change(
+                    fn=read_lora_metadata,
+                    inputs=[input_file],
+                    outputs=[json_output]
+                )
+            except:
+                pass
     return [(ui_component, "Metadata Viewer", "metadata_viewer_tab")]
 
 # Invoke a callback function. 
