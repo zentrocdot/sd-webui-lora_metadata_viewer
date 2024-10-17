@@ -27,7 +27,7 @@ LORA_PATH = getattr(modules.shared.cmd_opts, "lora_dir", os.path.join(models.pat
 lora_dict = {}
 
 # Set private variable.
-_sortdir = False
+_SortDir = False
 
 # Function lora_scan().
 def lora_scan(lora_dir: str, ext: list) -> (list, list):
@@ -70,15 +70,15 @@ def on_ui_tabs():
                                   lambda: {"choices": get_lora_list()},
                                   "metadata_utils_refresh_1")
             sort_fw_bw = gr.Radio(choices=["Forward", "Backward"], value="Forward", 
-                                         label="Sorting Direction", info="",
-                                         scale=2, min_width=50)
+                                  label="Sorting Direction", info="",
+                                  scale=2, min_width=50)
             with contextlib.suppress(AttributeError):
                 def change_sort_fw_bw(rb_state):
-                    global _sortdir
+                    global _SortDir
                     if rb_state == "Forward":
-                        _sortdir = False
-                    if rb_state == "Backward":
-                        _sortdir = True
+                        _SortDir = False
+                    elif rb_state == "Backward":
+                        _SortDir = True
                     return [rb_state]
                 sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[sort_fw_bw])
         # Create a new row. 
