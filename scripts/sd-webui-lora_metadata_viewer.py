@@ -82,7 +82,8 @@ def on_ui_tabs():
             sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[input_file])
             def choices_change():
                 new_list = get_lora_list()
-                return gr.update(choices=new_list, value=None)
+                #return gr.update(choices=new_list, value=None)
+                return input_file.update(choices=new_list, value=None)
             sort_fw_bw.change(choices_change, inputs=[], outputs=[input_file])
         # Create a new row. 
         with gr.Row():
