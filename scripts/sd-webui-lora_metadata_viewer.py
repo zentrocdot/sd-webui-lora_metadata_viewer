@@ -85,7 +85,7 @@ def on_ui_tabs():
             def rs_change(rs):
                 out_list = get_lora_list()
                 return gr.update(choices=out_list, value=None)
-            sort_fw_bw.change(rs_change, inputs=[], outputs=[input_file])
+            sort_fw_bw.change(rs_change, inputs=[], outputs=[])
         # Create a new row. 
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
