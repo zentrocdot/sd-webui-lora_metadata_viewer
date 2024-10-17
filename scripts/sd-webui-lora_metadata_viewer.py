@@ -82,10 +82,10 @@ def on_ui_tabs():
                     out_state = "Backward"
                 return [out_state]
             sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[])
-            def rs_change(rs):
-                out_list = get_lora_list()
-                return gr.update(choices=out_list, value=None)
-            sort_fw_bw.change(rs_change, inputs=[], outputs=[])
+            def choices_change():
+                new_list = get_lora_list()
+                return gr.update(choices=new_list, value=None)
+            sort_fw_bw.change(choices_change, inputs=[], outputs=[])
         # Create a new row. 
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
