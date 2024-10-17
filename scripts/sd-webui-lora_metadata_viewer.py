@@ -70,6 +70,7 @@ def on_ui_tabs():
                                   scale=2, min_width=50)
             def change_sort_fw_bw(rb_state):
                 global _SortDir
+                print(rb_state)
                 _SortDir = False
                 out_state = "Forward"
                 if rb_state == "Forward":
@@ -79,7 +80,8 @@ def on_ui_tabs():
                     _SortDir = True
                     out_state = "Backward"
                 return [out_state]
-            sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[input_file])
+            #sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[input_file])
+            sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[])
             def choices_change():
                 new_list = get_lora_list()
                 #return gr.update(choices=new_list, value=None)
