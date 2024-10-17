@@ -64,7 +64,7 @@ def on_ui_tabs():
     with gr.Blocks(analytics_enabled=False) as ui_component:    
         # Create a new row. 
         with gr.Row():
-            input_file = gr.Dropdown(choices=get_lora_list(), label="LoRA File List" )
+            input_file = gr.Dropdown(choices=get_lora_list(), label="LoRA File List")
             create_refresh_button(input_file, get_lora_list,
                                   lambda: {"choices": get_lora_list()},
                                   "metadata_utils_refresh_1")
@@ -76,11 +76,12 @@ def on_ui_tabs():
                 out_state = None
                 if rb_state == "Forward":
                     _SortDir = False
-                    out_state = "Forward"
+                    #out_state = "Forward"
                 elif rb_state == "Backward":
                     _SortDir = True
-                    out_state = "Backward"
-                return [out_state]
+                    #out_state = "Backward"
+                #return [out_state]
+                return []
             sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[input_file])
             def choices_change():
                 new_list = get_lora_list()
