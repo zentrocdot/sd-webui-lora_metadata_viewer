@@ -26,7 +26,7 @@ LORA_PATH = getattr(modules.shared.cmd_opts, "lora_dir", os.path.join(models.pat
 lora_dict = {}
 
 # Set private variable.
-_sorting = True
+_sortdir = True
 
 # Function lora_scan().
 def lora_scan(lora_dir: str, ext: list) -> (list, list):
@@ -45,7 +45,6 @@ def lora_scan(lora_dir: str, ext: list) -> (list, list):
         sd, fn = lora_scan(dirs, ext)
         subdirs.extend(sd)
         files.extend(fn)
-    files.sort(reverse=False)
     return subdirs, files
 
 # Function get_lora_list().
@@ -55,6 +54,7 @@ def get_lora_list() -> list:
     #_, lora_list = lora_scan(LORA_PATH, [".safetensors"])
     lora_scan(LORA_PATH, [".safetensors"])
     lora_list = list(lora_dict.keys())
+    lora_list.sort(reverse=_sortdir)
     return lora_list
 
 # Function on_ui_tabs().
