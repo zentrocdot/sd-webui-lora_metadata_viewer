@@ -79,15 +79,17 @@ def on_ui_tabs():
                 elif rb_state == "Backward":
                     _SortDir = True
                     out_state = "Backward"
-                return [out_state]
-            #sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[input_file])
-            sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[])
-            def choices_change():
-                new_list = get_lora_list()
                 print(_SortDir)
-                #return gr.update(choices=new_list, value=None)
-                return input_file.update(choices=new_list, value=None)
-            sort_fw_bw.change(choices_change, inputs=[], outputs=[input_file])
+                print(out_state)
+                new_list = get_lora_list()
+                input_file.update(choices=new_list, value=None)
+                return [out_state]
+            # sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[])
+            #def choices_change():
+            #    new_list = get_lora_list()
+            #    print(_SortDir)
+            #    return input_file.update(choices=new_list, value=None)
+            #sort_fw_bw.change(choices_change, inputs=[], outputs=[input_file])
         # Create a new row. 
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
