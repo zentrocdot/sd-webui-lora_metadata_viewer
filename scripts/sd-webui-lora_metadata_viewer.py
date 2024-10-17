@@ -70,7 +70,6 @@ def on_ui_tabs():
                                   scale=2, min_width=50)
             def change_sort_fw_bw(rb_state):
                 global _SortDir
-                print(rb_state)
                 _SortDir = False
                 out_state = "Forward"
                 if rb_state == "Forward":
@@ -79,17 +78,10 @@ def on_ui_tabs():
                 elif rb_state == "Backward":
                     _SortDir = True
                     out_state = "Backward"
-                print(_SortDir)
-                print(out_state)
-                new_list = get_lora_list()
-                gr.update(choices=new_list, value=None)
+                #new_list = get_lora_list()
+                #gr.update(choices=new_list, value=None)
                 return [out_state]
             sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[])
-            #def choices_change():
-            #    new_list = get_lora_list()
-            #    print(_SortDir)
-            #    return input_file.update(choices=new_list, value=None)
-            #sort_fw_bw.change(choices_change, inputs=[], outputs=[input_file])
         # Create a new row. 
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
@@ -120,4 +112,4 @@ def read_lora_metadata(input_file: str) -> json:
         if metadata := models.read_metadata_from_safetensors(selected_model):
             return json.dumps(metadata, indent=4, ensure_ascii=False)
         return "No metadata"
-    return ""
+    return "No model"
