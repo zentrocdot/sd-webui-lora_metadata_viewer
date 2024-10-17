@@ -75,11 +75,14 @@ def on_ui_tabs():
             #with contextlib.suppress(AttributeError):
             def change_sort_fw_bw(rb_state):
                 global _SortDir
+                out_state = None
                 if rb_state == "Forward":
                     _SortDir = False
+                    out_state = "Forward"
                 elif rb_state == "Backward":
                     _SortDir = True
-                return [rb_state]
+                     out_state = "Backward"
+                return [out_state]
             sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[sort_fw_bw])
         # Create a new row. 
         with gr.Row():
