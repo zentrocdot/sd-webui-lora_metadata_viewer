@@ -68,8 +68,8 @@ def on_ui_tabs():
             create_refresh_button(input_file, get_lora_list,
                                   lambda: {"choices": get_lora_list()},
                                   "metadata_utils_refresh_1")
-            ec_on_off = gr.Radio(choices=["On", "Off"], value="Off", 
-                                         label="Exact Calculation", info="of Width/Height",
+            sort_fw_bw = gr.Radio(choices=["Forward", "Backward"], value="Forward", 
+                                         label="Sorting Direction", info="",
                                          scale=2, min_width=7)
         # Create a new row. 
         with gr.Row():
