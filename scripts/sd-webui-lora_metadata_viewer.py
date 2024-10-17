@@ -71,16 +71,15 @@ def on_ui_tabs():
             def change_sort_fw_bw(rb_state):
                 global _SortDir
                 _SortDir = False
-                out_state = "Forward"
+                #out_state = "Forward"
                 if rb_state == "Forward":
                     _SortDir = False
-                    out_state = "Forward"
+                    #out_state = "Forward"
                 elif rb_state == "Backward":
                     _SortDir = True
-                    out_state = "Backward"
-                #new_list = get_lora_list()
-                #gr.update(choices=new_list, value=None)
-                return [out_state]
+                    #out_state = "Backward"
+                #return [out_state]
+                return []
             sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[])
         # Create a new row. 
         with gr.Row():
