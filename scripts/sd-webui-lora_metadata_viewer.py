@@ -13,6 +13,7 @@ Version 0.0.0.1
 # Import the Python modules.
 import os
 import json
+import contextlib
 import gradio as gr
 import modules.sd_models as models
 import modules.shared
@@ -73,8 +74,13 @@ def on_ui_tabs():
                                          scale=2, min_width=50)
             with contextlib.suppress(AttributeError):
                 def change_sort_fw_bw(rb_state):
-                    return []
-                sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[])
+                    global _sortdir
+                    if rb_state == "Forward":
+                        _sortdir = False
+                    if rb_state == "Forward":
+                        _sortdir = True
+                    return [rb_state]
+                sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[sort_fw_bw])
         # Create a new row. 
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
