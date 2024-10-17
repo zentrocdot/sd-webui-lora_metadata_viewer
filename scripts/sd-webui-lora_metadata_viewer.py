@@ -38,8 +38,6 @@ def lora_scan(lora_dir: str, ext: list) -> (list, list):
             subdirs.append(f.path)
         if fn.is_file():
             if os.path.splitext(fn.name)[1].lower() in ext:                
-                #files.append(fn.name)
-                #files.append(fn.path)
                 lora_dict[fn.name] = fn.path
     for dirs in list(subdirs):
         sd, fn = lora_scan(dirs, ext)
