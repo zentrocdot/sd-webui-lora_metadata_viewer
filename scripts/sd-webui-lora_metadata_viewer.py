@@ -102,6 +102,8 @@ script_callbacks.on_ui_tabs(on_ui_tabs)
 # Function get_lora_path().
 def get_lora_path(lora_file: str) -> str:
     '''Get the path to the LoRA file.'''
+    if not isinstance(lora_file, str):
+        lora_file = ""
     if not os.path.isfile(os.path.join(LORA_PATH, lora_file)):
         return ""
     return os.path.join(LORA_PATH, lora_file)
