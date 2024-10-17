@@ -13,7 +13,6 @@ Version 0.0.0.1
 # Import the Python modules.
 import os
 import json
-#import contextlib
 import gradio as gr
 import modules.sd_models as models
 import modules.shared
@@ -72,7 +71,6 @@ def on_ui_tabs():
             sort_fw_bw = gr.Radio(choices=["Forward", "Backward"], value="Forward", 
                                   label="Sorting Direction", info="",
                                   scale=2, min_width=50)
-            #with contextlib.suppress(AttributeError):
             def change_sort_fw_bw(rb_state):
                 global _SortDir
                 out_state = None
@@ -84,7 +82,10 @@ def on_ui_tabs():
                     out_state = "Backward"
                 return [out_state]
             sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[])
-            sort_fw_bw.change(get_lora_list, inputs=[], outputs=[input_file])
+            def rs_change(rs):
+                out_list = get_lora_list()
+                return gr.update(choices=out_list, value=None)
+            sort_fw_bw.change(rs_change, inputs=[], outputs=[input_file])
         # Create a new row. 
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
