@@ -72,9 +72,9 @@ def on_ui_tabs():
                                          label="Sorting Direction", info="",
                                          scale=2, min_width=50)
             with contextlib.suppress(AttributeError):
-                def change_sort_fw_bw():
+                def change_sort_fw_bw(rb_state):
                     return []
-                sort_fw_bw.change(change_sort_fw_bw, inputs=[], outputs=[])
+                sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[])
         # Create a new row. 
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
