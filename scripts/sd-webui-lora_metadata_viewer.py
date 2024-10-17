@@ -68,6 +68,9 @@ def on_ui_tabs():
             create_refresh_button(input_file, get_lora_list,
                                   lambda: {"choices": get_lora_list()},
                                   "metadata_utils_refresh_1")
+            ec_on_off = gr.Radio(choices=["On", "Off"], value="Off", 
+                                         label="Exact Calculation", info="of Width/Height",
+                                         scale=2, min_width=7)
         # Create a new row. 
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
