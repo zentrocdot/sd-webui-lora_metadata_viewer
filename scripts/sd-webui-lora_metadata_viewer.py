@@ -35,7 +35,8 @@ def lora_scan(lora_dir: str, ext: list) -> (list, list):
             subdirs.append(f.path)
         if fn.is_file():
             if os.path.splitext(fn.name)[1].lower() in ext:                
-                files.append(fn.name)
+                #files.append(fn.name)
+                #files.append(fn.path)
                 lora_dict[fn.name] = fn.path
     for dirs in list(subdirs):
         sd, fn = lora_scan(dirs, ext)
@@ -48,7 +49,9 @@ def lora_scan(lora_dir: str, ext: list) -> (list, list):
 def get_lora_list() -> list:
     '''Simple function for use with components.'''
     lora_list = []
-    _, lora_list = lora_scan(LORA_PATH, [".safetensors"])
+    #_, lora_list = lora_scan(LORA_PATH, [".safetensors"])
+    lora_scan(LORA_PATH, [".safetensors"])
+    lora_list = list(lora_dict.keys())
     return lora_list
 
 # Function on_ui_tabs().
