@@ -76,12 +76,11 @@ def on_ui_tabs():
                 out_state = None
                 if rb_state == "Forward":
                     _SortDir = False
-                    #out_state = "Forward"
+                    out_state = "Forward"
                 elif rb_state == "Backward":
                     _SortDir = True
-                    #out_state = "Backward"
-                #return [out_state]
-                return []
+                    out_state = "Backward"
+                return [out_state]
             sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[input_file])
             def choices_change():
                 new_list = get_lora_list()
@@ -116,5 +115,6 @@ def read_lora_metadata(input_file: str) -> json:
     if selected_model := get_lora_path(lora_dict.get(input_file)):
         if metadata := models.read_metadata_from_safetensors(selected_model):
             return json.dumps(metadata, indent=4, ensure_ascii=False)
-        return 'No metadata'
-    return 'No model'
+        return "No metadata"
+    #return "No model"
+    return ""
