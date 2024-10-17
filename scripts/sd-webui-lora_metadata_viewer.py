@@ -70,7 +70,8 @@ def on_ui_tabs():
                                   scale=2, min_width=50)
             def change_sort_fw_bw(rb_state):
                 global _SortDir
-                out_state = None
+                _SortDir = False
+                out_state = "Forward"
                 if rb_state == "Forward":
                     _SortDir = False
                     out_state = "Forward"
