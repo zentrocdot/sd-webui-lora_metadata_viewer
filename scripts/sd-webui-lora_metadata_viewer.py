@@ -89,15 +89,11 @@ def on_ui_tabs():
         # Create a new row. 
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
-            try:
-                #input_file.change(
-                input_file.input(
-                    fn=read_lora_metadata,
-                    inputs=[input_file],
-                    outputs=[json_output]
-                )
-            except:
-                pass
+            input_file.input(
+                fn=read_lora_metadata,
+                inputs=[input_file],
+                outputs=[json_output]
+            )
     return [(ui_component, "Metadata Viewer", "metadata_viewer_tab")]
 
 # Invoke a callback function. 
@@ -114,9 +110,6 @@ def get_lora_path(lora_file: str) -> str:
 def read_lora_metadata(input_file: str) -> json:
     '''Read the LoRA metadata.'''
     if selected_model := get_lora_path(lora_dict.get(input_file)):
-        print(selected_model)
-        print(type(selected_model))
-        if selected_model != "":
             if metadata := models.read_metadata_from_safetensors(selected_model):
                 return json.dumps(metadata, indent=4, ensure_ascii=False)
         return 'No metadata'
