@@ -81,7 +81,7 @@ def on_ui_tabs():
                     out_state = "Forward"
                 elif rb_state == "Backward":
                     _SortDir = True
-                     out_state = "Backward"
+                    out_state = "Backward"
                 return [out_state]
             sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[sort_fw_bw])
         # Create a new row. 
