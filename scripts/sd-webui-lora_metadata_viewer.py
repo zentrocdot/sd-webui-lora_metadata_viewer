@@ -70,7 +70,7 @@ def on_ui_tabs():
                                   "metadata_utils_refresh_1")
             sort_fw_bw = gr.Radio(choices=["Forward", "Backward"], value="Forward", 
                                          label="Sorting Direction", info="",
-                                         scale=2, min_width=7)
+                                         scale=2, min_width=50)
         # Create a new row. 
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
