@@ -71,6 +71,10 @@ def on_ui_tabs():
             sort_fw_bw = gr.Radio(choices=["Forward", "Backward"], value="Forward", 
                                          label="Sorting Direction", info="",
                                          scale=2, min_width=50)
+            with contextlib.suppress(AttributeError):
+                def change_sort_fw_bw():
+                    return []
+                sort_fw_bw.change(change_sort_fw_bw, inputs=[], outputs=[])
         # Create a new row. 
         with gr.Row():
             json_output = gr.Code(lines=10, label="Metadata as JSON", language="json")
