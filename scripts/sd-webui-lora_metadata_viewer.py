@@ -82,7 +82,7 @@ def on_ui_tabs():
                 print(_SortDir)
                 print(out_state)
                 new_list = get_lora_list()
-                input_file.update(choices=new_list, value=None)
+                gr.update(choices=new_list, value=None)
                 return [out_state]
             sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[])
             #def choices_change():
