@@ -49,7 +49,6 @@ def lora_scan(lora_dir: str, ext: list) -> (list, list):
 def get_lora_list() -> list:
     '''Simple function for use with components.'''
     lora_list = []
-    #_, lora_list = lora_scan(LORA_PATH, [".safetensors"])
     lora_scan(LORA_PATH, [".safetensors"])
     lora_list = list(lora_dict.keys())
     lora_list.sort(reverse=_SortDir)
@@ -114,5 +113,4 @@ def read_lora_metadata(input_file: str) -> json:
         if metadata := models.read_metadata_from_safetensors(selected_model):
             return json.dumps(metadata, indent=4, ensure_ascii=False)
         return "No metadata"
-    #return "No model"
     return ""
