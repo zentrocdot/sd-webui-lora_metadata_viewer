@@ -113,7 +113,9 @@ def get_lora_path(lora_file: str) -> str:
 def read_lora_metadata(input_file: str) -> json:
     '''Read the LoRA metadata.'''
     if selected_model := get_lora_path(lora_dict.get(input_file)):
-        if selected_model is not None:
+        print(selected_model)
+        print(type(selected_model))
+        if selected_model != "":
             if metadata := models.read_metadata_from_safetensors(selected_model):
                 return json.dumps(metadata, indent=4, ensure_ascii=False)
         return 'No metadata'
