@@ -89,7 +89,7 @@ def on_ui_tabs():
                 inputs=[input_file],
                 outputs=[json_output]
             )
-    return [(ui_component, "Metadata Viewer", "metadata_viewer_tab")]
+    return [(ui_component, "LoRA Metadata Viewer", "metadata_viewer_tab")]
 
 # Invoke a callback function. 
 script_callbacks.on_ui_tabs(on_ui_tabs)
