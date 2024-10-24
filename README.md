@@ -31,7 +31,13 @@
 
 ## Installation
 
-<p align="justify">to-do...</p>
+<p align="justify">Go to the tab <code>Extensions</code>. Then go to the tab <code>Install from URL</code>.</p> 
+    
+<p align="justify">The installation link is</p>
+
+```
+https://github.com/zentrocdot/sd-webui-lora_metadata_viewer
+```
 
 ## Know Problem
 
