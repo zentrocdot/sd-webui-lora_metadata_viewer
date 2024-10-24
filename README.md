@@ -13,9 +13,9 @@
 
 <p align="justify">to-do...</p>
 
-## Problem Description
+## Goal
 
-<p align="justify">to-do...</p>
+<p align="justify">Simple to use tool, which simply shows the metadata in JSON format.</p>
 
 ## Technical Background
 
