@@ -1,7 +1,7 @@
 # sd-webui-lora_metadata_viewer
 #### :arrow_right: Extension for the AUTOMATIC1111 Web UI
 
-<p align="justify"><b>sd-webui-lora_metadata_viewer</b> is an <i>Extension</i> for the <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTOMATIC1111</a> web UI.</p>
+<p align="justify"><b>sd-webui-lora_metadata_viewer</b> is an <i>Extension</i> for the <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTOMATIC1111</a> web UI. Metadata from a LoRA file can be shown in a textbox.</p>
 
 ---
 
@@ -11,7 +11,7 @@
 
 ## Preface
 
-<p align="justify">to-do...</p>
+<p align="justify">The existing tools don't have the functionality I need for my work. So I wrote myself a suitable extension.</p>
 
 ## Goal
 
@@ -19,7 +19,7 @@
 
 ## Technical Background
 
-<p align="justify">to-do...</p>
+<p align="justify">A <code>.safetensors</code> files consist of a <i>header</i> and a <i>binary part</i> with the tensors. In the <i>header</i> there may be most of the time <i>metadata</i>. One tag of these <i>metadata</i> specifies the output name. If the filename is not changed the output filename is equal to the filename.</p>
 
 ## What the Extension Does
 
