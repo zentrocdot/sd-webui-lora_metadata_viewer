@@ -27,7 +27,9 @@
 
 <a target="_blank" href=""><img src="./images/lora_metadata_viewer.png" alt="button panel"></a>
 
-<p align="justify">to-do...</p>
+<i>Figure 1: Opened panel of extension</i>
+
+<p align="justify"></p>
 
 ## Installation
 
