@@ -25,7 +25,7 @@
 
 <p align="justify">One can select a LoRA file from a dropdown menu. Sorting is possible in alphabetical forward and backward direction. The selected filename without extension is shown in a textbox. In parallel the JSON data is shown in textbox underneath.</p>
 
-<a target="_blank" href=""><img src="./images/lora_metadata_viewer.png" alt="button panel"></a>
+<a target="_blank" href=""><img src="./images/lora_metadata_viewer_new.png" alt="button panel"></a>
 
 <i>Figure 1: Opened panel of extension</i>
 
