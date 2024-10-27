@@ -65,7 +65,7 @@ https://github.com/zentrocdot/sd-webui-lora_metadata_viewer
 
 # TO-Do
 
-Improvement of documentation.
+<p align="justify">Improvement of this documentation. Extending of the metadata display to <i>Checkpoints</i>.</p>
 
 # Reference
 
