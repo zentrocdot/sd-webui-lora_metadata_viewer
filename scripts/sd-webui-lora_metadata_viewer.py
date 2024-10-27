@@ -2,7 +2,7 @@
 '''sd-webui-lora_metadata_viewer
 Extension for AUTOMATIC1111.
 
-Version 0.0.0.1
+Version 0.0.0.2
 '''
 # pylint: disable=invalid-name
 # pylint: disable=import-error
@@ -71,14 +71,10 @@ def on_ui_tabs():
             def change_sort_fw_bw(rb_state):
                 global _SortDir
                 _SortDir = False
-                #out_state = "Forward"
                 if rb_state == "Forward":
                     _SortDir = False
-                    #out_state = "Forward"
                 elif rb_state == "Backward":
                     _SortDir = True
-                    #out_state = "Backward"
-                #return [out_state]
                 return []
             sort_fw_bw.change(change_sort_fw_bw, inputs=[sort_fw_bw], outputs=[])
         # Create a new row. 
