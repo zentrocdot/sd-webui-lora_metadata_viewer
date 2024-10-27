@@ -63,6 +63,10 @@ https://github.com/zentrocdot/sd-webui-lora_metadata_viewer
 
 <p align="justify">I am still looking for a good documentation on how to integrate custom <i>Extensions</i> into <i>AUTOMATIC1111</i>. So far I have to resort to analysing other extensions and also having a look at the code of <i>AUTOMATIC1111</i>. This is a very unsatisfactory approach.</p>
 
+# TO-Do
+
+Improvement of documentation.
+
 # Reference
 
 [1] https://github.com/AUTOMATIC1111/stable-diffusion-webui
