@@ -65,7 +65,7 @@ https://github.com/zentrocdot/sd-webui-lora_metadata_viewer
 
 # TO-Do
 
-<p align="justify">Improvement of this documentation. Extending of the metadata display to <i>Checkpoints</i>.</p>
+<p align="justify">Improvement of this documentation. Extending of the metadata display to <i>Checkpoints</i>. I figured out, that I need a update button, when a LoRA was changed by another Extension.</p>
 
 # Reference
 
